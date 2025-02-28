@@ -1,5 +1,6 @@
 package com.sabinghost19.aspect_practice.services;
 
+import com.sabinghost19.aspect_practice.customAnnotations.ToLog;
 import com.sabinghost19.aspect_practice.models.Comment;
 import com.sabinghost19.aspect_practice.repos.CommentRepos;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,14 @@ public class CommentService {
         return this.commentRepos.toString();
     }
 
+    public void editingComment(Comment comment){
+        logger.info("Editing comment:"+comment.toString());
+    }
+
+    @ToLog
+    public void deleteComment(Comment comment){
+        logger.info("Deleting the comment: "+comment.toString());
+    }
     public String publishComment(Comment comment){
         logger.info("Publishing comment: "+comment);
         return "Success";

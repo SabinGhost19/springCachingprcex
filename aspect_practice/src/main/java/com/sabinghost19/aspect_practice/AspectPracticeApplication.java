@@ -15,6 +15,8 @@ public class AspectPracticeApplication {
         var service=context.getBean(CommentService.class);
         Comment new_comment = new Comment("COMMENT text","Custom Author");
         service.publishComment(new_comment);
+
+        service.deleteComment(new_comment);
     }
 
 }
